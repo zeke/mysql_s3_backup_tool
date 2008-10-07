@@ -1,0 +1,13 @@
+mysql_tools.rb
+  - Uses config file ./settings.yml
+  
+USAGE:
+mysql_tools.rb backup
+  - does a mysqldump on localhost, gzips it and stores to S3 in the configured bucket/folder
+
+mysql_tools.rb restore [filename]
+  - Must be run from the machine you wish to restore to.
+  - gets the latest mysql backup data from S3 and imports it into mysql
+  - takes an optional filename argument for a specific backup file from S3 in the configured bucket/folder
+
+To use cron to daily backup the DB, copy the sample.cron file into /etc/cron.daily, and make sure the path is correct.
